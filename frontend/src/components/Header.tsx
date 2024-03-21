@@ -1,4 +1,4 @@
-import { FaShoppingCart, FaUser } from 'react-icons/fa'
+import { FaBars, FaShoppingCart, FaUser } from 'react-icons/fa'
 import './header.css'
 import { Link } from 'react-router-dom'
 
@@ -24,6 +24,10 @@ const Header = () => {
                     </Link> 
                 </li>
             </ul>
+
+            <button className='nav__toggle-btn'>
+                <FaBars />
+            </button>
             
         </div>
     </nav>

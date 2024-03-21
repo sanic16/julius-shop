@@ -36,3 +36,20 @@
     font-family: 'Ribeye Marrow', sans-serif;
     font-size: 1.5rem;
 }
+
+.nav__toggle-btn{
+    display: none;
+}
+
+@media screen and (max-width: 1024px){
+    .nav__menu{
+        display: none;
+    }
+    .nav__toggle-btn{
+        display: grid;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #fff;
+        background-color: transparent;
+    }
+}

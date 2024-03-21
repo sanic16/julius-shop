@@ -90,6 +90,7 @@ img{
 }
 
 .container{
+  max-width: 1400px;
   width: var(--container-width-lg);
   margin-inline: auto;
 }
@@ -133,6 +134,24 @@ section{
 }
 
 @media screen and (max-width: 1024px){
+  h1{
+    font-size: 2rem;
+  }
+  h2{
+    font-size: 1.6rem;
+  }
+  h3{
+    font-size: 1.3rem;
+  }
+  h4{
+    font-size: 1.1rem;
+  }
+  h5{
+    font-size: 0.9rem;
+  }
+  h6{
+    font-size: 0.7rem;
+  }
   .container{
       width: var(--container-width-md);
   }
