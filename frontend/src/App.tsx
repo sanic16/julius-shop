@@ -1,7 +1,17 @@
+import Footer from "./components/Footer"
+import Header from "./components/Header"
+import HomePage from "./pages/homePage/HomePage"
 
 const App = () => {
   return (
-    <h1>Welcome to JuliusShop</h1>
+    <>
+      <Header />
+      <main>
+        <HomePage />
+
+      </main>
+      <Footer />
+    </>
   )
 }
 
