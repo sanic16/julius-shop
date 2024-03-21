@@ -1,15 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Ribeye+Marrow&family=Zilla+Slab+Highlight:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 :root{
-    --primary-color: hsla(236, 87%, 31%, 1);
-    --white-color: hsla(253, 0%, 96%, 1);
-    --light-color: hsla(253, 0%, 92%, 1);
-    --dark-color: hsla(253, 0%, 23%, 1);
-    --black-color: hsla(253, 0%, 11%, 1);
+    --primary-hue: 236;
+    --secondary-hue: 26;
+    --white-lightness: 96%;
+    --light-lightness: 88%;
+    --dark-lightness: 23%;
+    --black-lightness: 11%;
+
+    --primary-color: hsla(var(--primary-hue), 87%, 31%, 1);
+    --secondary-color: hsla(var(--secondary-hue), 87%, 45%, 1);
+    --white-color: hsla(var(--primary-hue), 0%, var(--white-lightness), 1);
+    --light-color: hsla(var(--primary-hue), 0%, var(--light-lightness), 1);
+    --dark-color: hsla(var(--primary-hue), 0%, var(--dark-lightness), 1);
+    --black-color: hsla(var(--primary-hue), 0%, var(--black-lightness), 1);
 
     --transition: all 300ms ease;
 
-    --container-width-lg: 84%;
+    --container-width-lg: 80%;
     --container-width-md: 92%;
     --form-width: 50%;
 
@@ -27,13 +35,14 @@
   outline: none;
   border: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body{
   color: var(--dark-color);
   font-size: .9rem;
   line-height: 1.6;
-  background-color: var(--white-color);
+  background: radial-gradient(circle, var(--white-color) 0%, var(--light-color) 100%);
 }
 
 main{
@@ -50,6 +59,30 @@ ul{
   list-style: none;
 }
 
+h1{
+  font-size: 2.2rem;
+}
+
+h2{
+  font-size: 1.8rem;
+}
+
+h3{
+  font-size: 1.5rem;
+}
+
+h4{
+  font-size: 1.2rem;
+}
+
+h5{
+  font-size: 1rem;
+}
+
+h6{
+  font-size: 0.8rem;
+}
+
 img{
   display: block;
   width: 100%;
@@ -59,6 +92,10 @@ img{
 .container{
   width: var(--container-width-lg);
   margin-inline: auto;
+}
+
+section{
+  padding-top: 4rem;
 }
 
 .btn{
@@ -74,11 +111,29 @@ img{
 }
 
 .btn:hover{
-  background-color: hsla(253, 78%, 23%, 1);
+  background-color: var(--secondary-color);
 }
 
+.btn.disabled{
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  cursor: not-allowed;
+}
+
+
+
 .heading__page{
-  text-align: center;
-  margin-bottom: 3rem;
-  margin-top: 7rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, var(--black-color), var(--secondary-color));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+
+
+}
+
+@media screen and (max-width: 1024px){
+  .container{
+      width: var(--container-width-md);
+  }
 }

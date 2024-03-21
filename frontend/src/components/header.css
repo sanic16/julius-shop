@@ -32,7 +32,7 @@
 }
 
 .nav__logo a{
-    color: #fff;
+    color: var(--white-color);
     font-family: 'Ribeye Marrow', sans-serif;
     font-size: 1.5rem;
 }

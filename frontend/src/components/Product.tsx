@@ -1,33 +1,40 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
+import Rating from './rating/Rating'
 
 const Product = (
     {
         _id,
         name,
         image,
-        description,
-        category,
         price,
-        countInStock,
         rating,
         numReviews
     }: Product
 ) => {
   return (
     <div className='product'>
-        <a href={`/product/${_id}`}>
-            <div className='product__image'>
-                <img src={image} alt={name} />
+            <div className='product__header'>
+                <div className='product__image'>
+                    <img src={image} alt={name} />
+                </div>
+                <Link to={`/product/${_id}`}>
+                    <h5>{name}</h5>
+                </Link>
             </div>
+
             <div className='product__body'>
-                <a href={`/product/${_id}`}>
-                    <h3>{name}</h3>
-                </a>
-                <p>
-                    ${price}
+                
+                <p className='product__rating'>
+                    <Rating value={rating} text={`${numReviews} reviews`} />
                 </p>
+                <p className='product__price'>
+                    Q{price}
+                </p>
+                <Link to={`/product/${_id}`} className='btn'>
+                    Ver Producto
+                </Link>
             </div>
-        </a>
+
     </div>
   )
 }

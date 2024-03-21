@@ -1,0 +1,73 @@
+.product__details{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas: "col1 col1 col1 col2 col2 col2 col3 col3";
+                      
+    align-items: flex-start;
+    margin-top: 3rem;
+    gap: 1rem;
+}
+
+.product__details-col1{
+    grid-area: col1;
+}
+
+.product__details-col2{
+    grid-area: col2;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.product__details-col2 > *:not(:first-child){
+    padding: 1rem 0;
+    border-top: 1px solid  hsla(var(--primary-hue), 0%, var(--dark-lightness), .5);
+}
+
+
+.product__details-col3{
+    grid-area: col3;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px solid hsla(var(--primary-hue), 0%, var(--dark-lightness), .5);
+    box-shadow: 0 0 .5rem hsla(var(--primary-hue), 0%, var(--dark-lightness), .5);
+}
+
+.product__details-col3 div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.product__details-col3 div:not(:first-child){
+    border-top: 1px solid  hsla(var(--primary-hue), 0%, var(--dark-lightness), .5);
+} 
+
+@media screen and (max-width:950px){
+    .product__details{
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas: "col1 col1 col1 col2 col2 col2 col2 col2"
+                             "col3 col3 col3 col2   col2 col2 col2 col2";
+    }
+}
+
+@media screen and (max-width: 650px){
+    .product__details{
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: "col1 col1 col1 col1 col1 col1 col1 col1"
+                             "col2 col2 col2 col2 col2 col2 col2 col2"
+                             "col3 col3 col3 col3 . . . .";  
+    }
+}
+
+@media screen and (max-width: 500px){
+    .product__details{
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: "col1 col1 col1 col1 col1 col1 col1 col1"
+                             "col2 col2 col2 col2 col2 col2 col2 col2"
+                             "col3 col3 col3 col3 col3 col3 col3 col3";                             ;  
+    }
+}

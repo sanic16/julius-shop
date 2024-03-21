@@ -1,26 +1,27 @@
 import { FaShoppingCart, FaUser } from 'react-icons/fa'
 import './header.css'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
     <nav className='nav'>
         <div className="container nav__container">
             <div className="nav__logo">
-                <a href={'/'}>
+                <Link to={'/'}>
                     JuliusShop
-                </a>
+                </Link>
             </div>
 
             <ul className="nav__menu">
                 <li>
-                    <a href={'/cart'} className='nav__menu-item'>
+                    <Link to={'/cart'} className='nav__menu-item'>
                         <FaShoppingCart /> Carrito
-                    </a> 
+                    </Link> 
                 </li>
                 <li>
-                    <a href={'/login'} className='nav__menu-item'>
+                    <Link to={'/login'} className='nav__menu-item'>
                         <FaUser /> Iniciar sesión
-                    </a> 
+                    </Link> 
                 </li>
             </ul>
             

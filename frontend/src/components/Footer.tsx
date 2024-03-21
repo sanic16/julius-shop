@@ -107,7 +107,7 @@ const Footer = () => {
         </div>
         <div className="copyright">
             <p>
-                &copy; {new Date().getFullYear()} JuliusShop. Todos los derechos reservados.
+                &copy; {new Date().getFullYear()} <span>JuliusShop</span>. Todos los derechos reservados.
             </p>
         </div>
     </footer>
