@@ -11,6 +11,7 @@ const Product = (
         numReviews
     }: Product
 ) => {
+    console.log(image)
   return (
     <div className='product'>
             <div className='product__header'>

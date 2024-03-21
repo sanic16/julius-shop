@@ -1,0 +1,26 @@
+{
+  "name": "julius_shop",
+  "version": "1.0.0",
+  "description": "Pequeño ecommerce desarrollado con el stack mern usando rtk y rtk query para el manejo del estado y queries respectivamente. El proyecto está completamente desarrollado usando typescript tanto el frontend y el backend. ",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "build": "npx tsc",
+    "dev": "concurrently \"npx tsc -w\" \"nodemon ./build/index.js \" ",
+    "superdev": "concurrently \"npm run dev --prefix frontend\" \"npm run dev\" ",
+    "client": "npm run dev --prefix frontend",
+    "start": "node ./build/index.js"
+  },
+  "author": "Julio Rubén Sanic Martínez",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.1"
+  }
+}
