@@ -1,12 +1,23 @@
 import { Link, useParams } from "react-router-dom"
-import products from "../../assets/products"
+import axios from 'axios'
+import { useEffect, useState } from "react"
 
 import './productPage.css'
 import Rating from "../../components/rating/Rating"
 
 const ProductPage = () => {
   const { id:productId } = useParams<{ id: string }>() 
-  const product = products.find(product => product._id === productId) 
+
+  const [product, setProduct] = useState<Product | null>(null)
+  
+  useEffect(() => {
+    const fetchProduct = async () => {
+        const response = await axios.get(`/api/products/${productId}`)
+        setProduct(response.data)
+    }
+    fetchProduct()
+  }, [productId])
+
   if (!product) {
     return (
         <section>
