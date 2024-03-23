@@ -13,12 +13,14 @@ import {
 } from 'react-router-dom'
 import HomePage from './pages/homePage/HomePage.tsx'
 import ProductPage from './pages/productPage/ProductPage.tsx'
+import CartPage from './pages/cartPage/CartPage.tsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route index path='/' element={<HomePage />} />
       <Route path='/product/:id' element={<ProductPage />} />
+      <Route path='/cart' element={<CartPage />} />
     </Route> 
   )
 )

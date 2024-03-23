@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Ribeye+Marrow&family=Zilla+Slab+Highlight:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 :root{
-    --primary-hue: 300;
-    --secondary-hue: 55;
+    --primary-hue: 88;
+    --secondary-hue: 45;
     --white-lightness: 92%;
     --light-lightness: 84%;
     --dark-lightness: 16%;
-    --black-lightness: 8%;
+    --black-lightness: 4%;
 
     --primary-color: hsla(var(--primary-hue), 87%, 31%, 1);
     --secondary-color: hsla(var(--secondary-hue), 77%, 45%, 1);
@@ -51,7 +51,7 @@ body{
 
 main{
   margin-top: 5rem;
-  min-height: calc(100vh - 5rem);
+  min-height: calc(100vh - 10rem);
 }
 
 a{
@@ -100,7 +100,7 @@ img{
 }
 
 section{
-  padding-top: 4rem;
+  padding-top: 3rem;
 }
 
 .btn{
@@ -130,12 +130,10 @@ section{
 
 .heading__page{
   margin-bottom: 1.5rem;
-  background: linear-gradient(to right, var(--black-color), var(--secondary-color));
+  background: linear-gradient(to right, var(--secondary-color), var(--black-color));
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-
-
 }
 
 @media screen and (max-width: 1024px){

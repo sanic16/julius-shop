@@ -18,3 +18,14 @@ interface FetchedProduct extends Product {
     updatedAt: string,
 }
 
+interface CartItem extends FetchedProduct {
+    qty: number
+}
+
+type CartState = {
+    cartItems: CartItem[]
+    itemsPrice: number,
+    shippingPrice: number,
+    taxPrice: number,
+    totalPrice: number,
+}

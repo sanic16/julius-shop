@@ -28,7 +28,7 @@
     padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
 .nav__logo a{
@@ -39,6 +39,17 @@
 
 .nav__toggle-btn{
     display: none;
+}
+
+.nav__menu-item .nav__cart-qty{
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: .5rem;
+    margin-left: -.2rem;
+    color: white;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius-2);
+    padding: .1rem .2rem;
 }
 
 @media screen and (max-width: 1024px){

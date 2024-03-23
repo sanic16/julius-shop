@@ -35,14 +35,27 @@
     box-shadow: 0 0 .5rem hsla(var(--primary-hue), 0%, var(--dark-lightness), .5);
 }
 
-.product__details-col3 div{
+.product__details-col3 > div{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
 }
 
-.product__details-col3 div:not(:first-child){
+.product__details-col3 .qty{
+    width: fit-content;
+    padding-block: 0.35rem;
+    padding-inline: 0.5rem;
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius-2);
+    color: white;
+}
+
+.product__details-col3 .qty:hover{
+    background-color: var(--secondary-color);
+}
+
+.product__details-col3 > div:not(:first-child){
     border-top: 1px solid  hsla(var(--primary-hue), 0%, var(--dark-lightness), .5);
 } 
 

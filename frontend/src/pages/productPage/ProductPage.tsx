@@ -1,4 +1,5 @@
-import { Link, useParams } from "react-router-dom"
+import { useState } from "react"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import './productPage.css'
 import Rating from "../../components/rating/Rating"
 
@@ -6,9 +7,19 @@ import { useGetProductQuery } from "../../store/slices/productsApiSlice"
 import LoaderText from "../../components/loader/LoaderText"
 import { useEffect } from "react"
 import Message from "../../components/message/Message"
+import { useDispatch } from "react-redux"
+import { addToCart } from "../../store/slices/cartSlice"
 
 const ProductPage = () => {
   const { id } = useParams<{ id: string }>() 
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const [qty, setQty] = useState(1)
+
+
+
+  const { data:product, isLoading, isError } = useGetProductQuery(id!)
 
   useEffect(() => {
     const body = document.querySelector('#root') as HTMLDivElement
@@ -17,9 +28,11 @@ const ProductPage = () => {
     })
   })
 
-  const { data:product, isLoading, isError } = useGetProductQuery(id!)
+  const addToCartHandler = () => {
+    dispatch(addToCart({...product!, qty}))
+    navigate('/cart')    
+  }
 
-  
   return (
     <section id="detail">
         <div className="container">
@@ -54,13 +67,30 @@ const ProductPage = () => {
                         <h5>Estado:</h5>
                         <span>{product?.countInStock > 0 ? 'En Stock' : 'Agotado'}</span>
                     </div>
-                    <div>
-                        <button 
-                            className={`btn ${product?.countInStock === 0 ? 'disabled' : ''}`}
-                            disabled={product?.countInStock === 0}
-                        >
-                            Añadir al Carrito
-                        </button> 
+                    
+                        {
+                            product.countInStock > 0 && (
+                                <div>
+                                    <h5>Cantidad:</h5>
+                                    <select value={qty} onChange={(e) => setQty(parseInt(e.target.value))} className="qty">
+                                        {
+                                            [...Array((product.countInStock > 9 ? 6 : product.countInStock)).keys()].map(x => (
+                                                <option key={x + 1} value={x + 1}>{x + 1}</option>
+                                            ))
+                                        }
+                                    </select>
+                                </div>
+                            
+                            )
+                        }
+                        <div>
+                            <button 
+                                className={`btn ${product?.countInStock === 0 ? 'disabled' : ''}`}
+                                disabled={product?.countInStock === 0}
+                                onClick={addToCartHandler}
+                            >
+                                Añadir
+                            </button> 
                     </div>
                 </div>
             </div>
