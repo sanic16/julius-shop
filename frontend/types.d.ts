@@ -1,11 +1,20 @@
-type Product = {
+interface Product  {
     _id: string
     name: string
     image: string
-    description: string
     category: string
-    price: number
-    countInStock: number
+    description: string 
     rating: number
+    countInStock: number
+    price: number
     numReviews: number
 }
+
+interface FetchedProduct extends Product {
+    user: string,
+    brand: string,        
+    reviews: string[],        
+    createdAt: string,
+    updatedAt: string,
+}
+

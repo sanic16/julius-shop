@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react"
-import axios from 'axios'
+import { useGetProductsQuery } from "../../store/slices/productsApiSlice"
+
 import Product from "../../components/Product"
 import './homePage.css'
+import LoaderText from "../../components/loader/LoaderText"
+import Message from "../../components/message/Message"
 
 const HomePage = () => {
-  const [products, setProducts] = useState<Product[]>([])
-  useEffect(() => {
-    const fetchProducts = async () => {
-        const response = await axios.get('/api/products')
-        setProducts(response.data)
-    }
-    fetchProducts()
-  }, [])  
+  
+  const { data: products, isLoading, isError } = useGetProductsQuery() 
+
+  
+  
   return (
     <section>
         <div className="container">
             <h1 className="heading__page">
                 Últimos productos
             </h1>
-            <div className="products">
+            {
+                isLoading ? <LoaderText /> : (isError || !products ) ? <Message text="error" variant="danger"/>: <div className="products">
                 {
                     products.map(product => (
                         <Product
@@ -28,6 +28,7 @@ const HomePage = () => {
                     ))
                 }
             </div>
+            }
         </div>
     </section>
   )

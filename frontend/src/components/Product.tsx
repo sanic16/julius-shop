@@ -11,7 +11,6 @@ const Product = (
         numReviews
     }: Product
 ) => {
-    console.log(image)
   return (
     <div className='product'>
             <div className='product__header'>
@@ -25,9 +24,9 @@ const Product = (
 
             <div className='product__body'>
                 
-                <p className='product__rating'>
+                <div className='product__rating'>
                     <Rating value={rating} text={`${numReviews} reviews`} />
-                </p>
+                </div>
                 <p className='product__price'>
                     Q{price}
                 </p>

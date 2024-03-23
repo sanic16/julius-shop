@@ -1,38 +1,32 @@
 import { Link, useParams } from "react-router-dom"
-import axios from 'axios'
-import { useEffect, useState } from "react"
-
 import './productPage.css'
 import Rating from "../../components/rating/Rating"
 
+import { useGetProductQuery } from "../../store/slices/productsApiSlice"
+import LoaderText from "../../components/loader/LoaderText"
+import { useEffect } from "react"
+import Message from "../../components/message/Message"
+
 const ProductPage = () => {
-  const { id:productId } = useParams<{ id: string }>() 
+  const { id } = useParams<{ id: string }>() 
 
-  const [product, setProduct] = useState<Product | null>(null)
-  
   useEffect(() => {
-    const fetchProduct = async () => {
-        const response = await axios.get(`/api/products/${productId}`)
-        setProduct(response.data)
-    }
-    fetchProduct()
-  }, [productId])
+    const body = document.querySelector('#root') as HTMLDivElement
+    body.scrollIntoView({
+        behavior: 'smooth'
+    })
+  })
 
-  if (!product) {
-    return (
-        <section>
-            <h1>
-                Product Not Found
-            </h1>
-        </section>
-    )
-  }
+  const { data:product, isLoading, isError } = useGetProductQuery(id!)
+
+  
   return (
-    <section>
+    <section id="detail">
         <div className="container">
             <Link to="/" className="btn">Volver</Link>
 
-            <div className="product__details">
+            {
+                isLoading ? <LoaderText /> : (isError || !product) ? <Message text="Error" variant="danger"/> : <div className="product__details">
                 <div className="product__details-col1">
                     <div>
                         <img src={product?.image} alt={product?.name} />
@@ -70,6 +64,7 @@ const ProductPage = () => {
                     </div>
                 </div>
             </div>
+            }
         </div>
         
     </section>

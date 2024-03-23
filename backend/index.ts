@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import connectDB from './config/db'
 import productRoutes from './routes/productRoutes' 
 import { notFound, errorHandler } from './middleware/errorMiddleware'
+import cors from 'cors'
 
 dotenv.config()
 connectDB()
@@ -10,6 +11,11 @@ connectDB()
 const app = express()
 
 const port = process.env.PORT || 5000
+
+app.use(cors({
+  credentials: true,
+  origin: '*'
+}))
 
 app.get('/', (_req, res) => {
   res.send('Hello World!')

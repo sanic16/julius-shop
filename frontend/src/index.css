@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Ribeye+Marrow&family=Zilla+Slab+Highlight:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 :root{
-    --primary-hue: 236;
-    --secondary-hue: 26;
-    --white-lightness: 96%;
-    --light-lightness: 88%;
-    --dark-lightness: 23%;
-    --black-lightness: 11%;
+    --primary-hue: 300;
+    --secondary-hue: 55;
+    --white-lightness: 92%;
+    --light-lightness: 84%;
+    --dark-lightness: 16%;
+    --black-lightness: 8%;
 
     --primary-color: hsla(var(--primary-hue), 87%, 31%, 1);
-    --secondary-color: hsla(var(--secondary-hue), 87%, 45%, 1);
+    --secondary-color: hsla(var(--secondary-hue), 77%, 45%, 1);
     --white-color: hsla(var(--primary-hue), 0%, var(--white-lightness), 1);
     --light-color: hsla(var(--primary-hue), 0%, var(--light-lightness), 1);
     --dark-color: hsla(var(--primary-hue), 0%, var(--dark-lightness), 1);
@@ -38,16 +38,20 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   color: var(--dark-color);
   font-size: .9rem;
   line-height: 1.6;
-  background: radial-gradient(circle, var(--white-color) 0%, var(--light-color) 100%);
+  background: var(--white-color);
 }
 
 main{
-  min-height: calc(100vh - 5rem);
   margin-top: 5rem;
+  min-height: calc(100vh - 5rem);
 }
 
 a{
@@ -108,6 +112,7 @@ section{
   color: #fff;
   font-weight: 500;
   cursor: pointer;
+  border: 1px solid transparent;
   transition: var(--transition);
 }
 
