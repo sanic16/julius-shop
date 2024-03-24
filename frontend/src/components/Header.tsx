@@ -1,15 +1,31 @@
 import { FaBars, FaShoppingCart, FaUser } from 'react-icons/fa'
 import './header.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useLogoutMutation } from '../store/slices/usersApiSlice'
+import { logout } from '../store/slices/authSlice'
+import { toast } from 'react-toastify'
 
 const Header = () => {
   const { cartItems } = useSelector((state: {cart: CartState}) => state.cart as CartState)
   const { userInfo } = useSelector((state: {auth: AuthState}) => state.auth as AuthState)  
   const qty = cartItems.reduce((acc, item) => acc + item.qty, 0)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const [logoutMutation] = useLogoutMutation()
 
-  const logoutHandler = () => {
-    console.log('logout')
+  const logoutHandler = async() => {
+    
+    try {
+        await logoutMutation().unwrap()
+        dispatch(logout())
+        navigate('/')
+        toast.success('Sesión cerrada correctamente!')
+        
+    } catch (error) {
+        toast.error('Error al cerrar sesión! ')
+    }
   }
   return (
     <nav className='nav'>

@@ -46,6 +46,10 @@ const LoginPage = () => {
             email: userData.email,
             password: userData.password
         }).unwrap()
+        if(!res){
+            toast.error('Error al iniciar sesión!')
+            return
+        }
         dispatch(setCredentials({
             _id: res._id,
             name: res.name,

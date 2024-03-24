@@ -61,7 +61,7 @@ export const registerUser = asyncHandler(async (req, res) => {
 // @route   GET /api/users/logout
 // @access  Private
 export const logoutUser = asyncHandler(async (_req, res) => {
-    res.cookie('jwt', '', {httpOnly: true, expires: new Date(0), secure: process.env.NODE_ENV !== 'development', sameSite: 'none'})
+    res.cookie('jwt', '', {httpOnly: true, expires: new Date(0), secure: true, sameSite: 'none'})
     return res.status(200).json({
         message: 'Sesión cerrada'
     })

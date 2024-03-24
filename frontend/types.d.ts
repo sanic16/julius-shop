@@ -35,7 +35,7 @@ type UserInfo = {
     name: string;
     email: string;
     isAdmin: boolean;
-}
+} | null
 
 type AuthState = {
     userInfo: UserInfo
