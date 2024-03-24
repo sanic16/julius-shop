@@ -52,6 +52,35 @@
     padding: .1rem .2rem;
 }
 
+.nav__menu-user{
+    position: relative;
+}
+
+.nav__menu-user-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--primary-color);
+    display: none;
+}
+
+.nav__menu-user:hover .nav__menu-user-menu{
+    display: block;
+}
+
+.nav__menu-user-menu a{
+    color: #fff;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+}
+
+.nav__menu-user-menu a:hover{
+    background-color: var(--secondary-color);
+}
+
 @media screen and (max-width: 1024px){
     .nav__menu{
         display: none;

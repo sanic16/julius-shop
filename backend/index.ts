@@ -6,6 +6,7 @@ import productRoutes from './routes/productRoutes'
 import userRoutes from './routes/userRoutes'
 import { notFound, errorHandler } from './middleware/errorMiddleware'
 import cors from 'cors'
+import { credentials } from './middleware/credentials'
 
 dotenv.config()
 connectDB()
@@ -14,9 +15,11 @@ const app = express()
 
 const port = process.env.PORT || 5000
 
+app.use(credentials)
+
 app.use(cors({
   credentials: true,
-  origin: '*'
+  origin: 'http://localhost:5173'
 }))
 
 app.use(express.json())
