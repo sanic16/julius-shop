@@ -73,6 +73,10 @@
 
 .cart__bill h3{
     margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--dark-color), var(--primary-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .cart__bill-row{
