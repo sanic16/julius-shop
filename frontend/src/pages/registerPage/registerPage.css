@@ -1,0 +1,63 @@
+.login{
+    margin: 0;
+    padding: 0;
+    width: var(--form-width);
+    margin-inline: auto;
+    height: calc(100vh - 10rem);
+    display: grid;
+    place-items: center;
+    align-content: center;
+}
+
+.login h2{
+    margin-bottom: 2rem;
+    background: linear-gradient(to right, var(--secondary-color), var(--dark-color));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.login__container{
+    margin-top: 5rem;
+}
+
+.login input, .login select, .login textarea{
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border-radius: var(--border-radius-1);
+    resize: none;
+}
+
+.login small{
+    display: block;
+    margin-top: 1.5rem;
+}
+
+.login small a{
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+}
+
+
+
+.form__error-message{
+    background-color: var(--color-red);
+    color: var(--black-color);
+    font-size: 0.8rem;
+    padding: 0.6rem 1rem;
+    border-radius: var(--border-radius-1);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 800px){
+    .login{
+        width: 100%;
+    }
+}

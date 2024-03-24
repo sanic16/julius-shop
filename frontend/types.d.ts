@@ -22,12 +22,21 @@ interface CartItem extends FetchedProduct {
     qty: number
 }
 
+type ShippingAddress = {
+    address: string,
+    city: string,
+    postalCode: string,
+    country: string
+}
+
 type CartState = {
     cartItems: CartItem[]
     itemsPrice: number,
     shippingPrice: number,
     taxPrice: number,
     totalPrice: number,
+    paymentMethod: 'PayPal',
+    shippingAddress: ShippingAddress
 }
 
 type UserInfo = {
@@ -41,7 +50,11 @@ type AuthState = {
     userInfo: UserInfo
 }
 
-type AuthUser = {    
+interface AuthUser {    
     email: string,
     password: string
+}
+
+interface RegisterUser extends AuthUser {
+    name: string
 }

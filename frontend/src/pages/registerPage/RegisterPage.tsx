@@ -1,22 +1,24 @@
 import { useState, useEffect } from "react"
-import './loginPage.css'
+import './registerPage.css'
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { useLoginMutation } from "../../store/slices/usersApiSlice"
+import { useRegisterMutation } from "../../store/slices/usersApiSlice"
 import { setCredentials } from "../../store/slices/authSlice"
 import { toast } from "react-toastify"
 
-const LoginPage = () => {
+const RegisterPage = () => {
 
   const [userData, setUserData] = useState({
+    username: '',
     email: '',
-    password: ''
+    password: '',
+    confirmPassword: ''
   })  
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const [login, { isLoading }] = useLoginMutation()
+  const [register, { isLoading }] = useRegisterMutation()
   const { userInfo } = useSelector((state: {auth: AuthState}) => state.auth) 
 
   const { search } = useLocation()
@@ -40,15 +42,19 @@ const LoginPage = () => {
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if(userData.password !== userData.confirmPassword){
+        toast.error('Las contraseñas no coinciden!')
+        return
+    }
     try {
-        const res = await login({
+        const res = await register({
+            name: userData.username,
             email: userData.email,
             password: userData.password
         }).unwrap()
-        if(!res){
-            toast.error('Error al iniciar sesión!')
-            return
-        }
+
+        if(!res) throw new Error('Error al ingresar!')
+
         dispatch(setCredentials({
             _id: res._id,
             name: res.name,
@@ -58,7 +64,7 @@ const LoginPage = () => {
         toast.success('Ingresado correctamente!')
         navigate(redirect)
     } catch (error) {
-        toast.error('Error')
+        toast.error('Error al ingresar!')
     }  
   }
 
@@ -67,7 +73,7 @@ const LoginPage = () => {
     <section className='login'>
         <div className="container login__container">
             <h2>
-                Iniciar Sesión
+                Registrarse
             </h2>
             <form 
                 className='form login__form'
@@ -80,6 +86,14 @@ const LoginPage = () => {
                         </p>
                     )
                 } */}
+                <input
+                    type="text"
+                    placeholder="Nombre de usuario"
+                    name="username"
+                    value={userData.username}
+                    onChange={handleInputChange}
+                />
+
                 <input
                     type="email"
                     placeholder="Correo Electrónico"
@@ -95,6 +109,13 @@ const LoginPage = () => {
                     value={userData.password}
                     onChange={handleInputChange}
                 />
+                <input
+                    type="password"
+                    placeholder="Confirmar Contraseña"
+                    name="confirmPassword"
+                    value={userData.confirmPassword}
+                    onChange={handleInputChange}
+                />
                 {
                     isLoading ? (
                         <button
@@ -102,22 +123,22 @@ const LoginPage = () => {
                             type="submit"
                             disabled
                         >
-                            Iniciando sesión
+                            Registrando...
                         </button>
                     ): (                        
                         <button
                         className="btn"
                         type="submit"
                     >
-                        Iniciar sesión
+                        Registrarse
                     </button>
                     ) 
                 }
             </form>
             <small>
-                ¿No tienes cuenta aún ? {' '} 
-                <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
-                    Registrate
+                Ya tienes una cuenta? {' '} 
+                <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
+                    Iniciar sesión
                 </Link>
             </small>
         </div>
@@ -125,4 +146,4 @@ const LoginPage = () => {
   )
 }
 
-export default LoginPage
+export default RegisterPage
