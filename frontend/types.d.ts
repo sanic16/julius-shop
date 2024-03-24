@@ -29,3 +29,19 @@ type CartState = {
     taxPrice: number,
     totalPrice: number,
 }
+
+type UserInfo = {
+    _id: string;
+    name: string;
+    email: string;
+    isAdmin: boolean;
+}
+
+type AuthState = {
+    userInfo: UserInfo
+}
+
+type AuthUser = {    
+    email: string,
+    password: string
+}
