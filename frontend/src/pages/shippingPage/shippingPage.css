@@ -1,26 +1,25 @@
-.shipping{
+.shipping__container .form{
+    width: 100%;
+}
+
+.form__container{
     margin: 0;
     padding: 0;
     width: var(--form-width);
     margin-inline: auto;
-    height: calc(100vh - 10rem);
+    height: calc(100vh - 15rem);
     display: grid;
     place-items: center;
     align-content: center;
 }
 
-.shipping h1{
+.shipping h2{
     margin-bottom: 2rem;
     background: linear-gradient(to right, var(--secondary-color), var(--dark-color));
     background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
-
-.shipping__container{
-    margin-top: 3rem;
-}
-
 .shipping .form__group{
     position: relative;
 }
@@ -41,22 +40,8 @@
     resize: none;
 }
 
-.login small{
-    display: block;
-    margin-top: 1.5rem;
-}
-
-.login small a{
-    color: var(--secondary-color);
-    text-decoration: underline;
-}
-
-
-
-
-
 @media screen and (max-width: 800px){
-    .shipping{
+    .form__container{
         width: 100%;
     }
 }

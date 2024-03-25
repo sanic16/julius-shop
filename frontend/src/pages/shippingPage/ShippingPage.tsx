@@ -41,11 +41,13 @@ const ShippingPage = () => {
   }
   return (
     <section className='shipping'>
-        <CheckoutSteps step1 />
+        
         <div className='container shipping__container'>
-            <h1>
+            <CheckoutSteps step1 />
+            <div className="form__container">
+            <h2>
                 Envío
-            </h1>
+            </h2>
             <form onSubmit={submitHandler} className='form'>
                 <div className='form__group'>
                     <FaMapMarkerAlt />
@@ -93,7 +95,8 @@ const ShippingPage = () => {
                     >
                         Continuar
                     </button>
-            </form>    
+            </form>  
+            </div>  
         </div>
     </section>
   )

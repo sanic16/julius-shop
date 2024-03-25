@@ -1,0 +1,47 @@
+.form__container{
+    margin: 0;
+    padding: 0;
+    width: var(--form-width);
+    margin-inline: auto;
+    height: calc(100vh - 15rem);
+    display: grid;
+    place-items: center;
+    align-content: center;
+}
+
+.payment__container .form{
+    width: 100%;
+} 
+
+.payment h2{
+    margin-bottom: 2rem;
+    background: linear-gradient(to right, var(--secondary-color), var(--dark-color));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.payment .form__group{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.payment .form__group label{
+    order: -1;
+    flex-basis: 80%;
+    text-align: start;
+}
+
+.payment .form__group input{
+    flex-basis: 20%;
+    accent-color: var(--primary-color);
+}
+
+.payment input{
+    width: 100%;
+    padding: 0.6rem .5rem;
+    padding-left: 2rem;
+    border-radius: var(--border-radius-1);
+    resize: none;
+}
