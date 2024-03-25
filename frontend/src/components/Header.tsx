@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux'
 import { useLogoutMutation } from '../store/slices/usersApiSlice'
 import { logout } from '../store/slices/authSlice'
 import { toast } from 'react-toastify'
+import { IoColorWand } from 'react-icons/io5'
+import useModalContext from '../hooks/useContextModal'
 
 const Header = () => {
   const { cartItems } = useSelector((state: {cart: CartState}) => state.cart as CartState)
@@ -14,6 +16,7 @@ const Header = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [logoutMutation] = useLogoutMutation()
+  const { openModalHandler } = useModalContext()
 
   const logoutHandler = async() => {
     
@@ -37,6 +40,14 @@ const Header = () => {
             </div>
 
             <ul className="nav__menu">
+                <li>
+                    <button 
+                        className='nav__theme-picker'
+                        onClick={openModalHandler}
+                    >
+                        <IoColorWand /> Tema
+                    </button>
+                </li>
                 <li>
                     <Link to={'/cart'} className='nav__menu-item'>
                     <FaShoppingCart />{qty > 0 ? <span className='nav__cart-qty'>({qty})</span> : null }Carrito                            

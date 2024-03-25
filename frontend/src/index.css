@@ -43,11 +43,93 @@ html{
   scroll-behavior: smooth;
 }
 
-body{
-  color: var(--dark-color);
+.theme.background-1{
+    --white-lightness: 92%;
+    --light-lightness: 84%;
+    --dark-lightness: 20%;
+    --black-lightness: 4%;
+    --white-color: hsla(var(--primary-hue), 0%, var(--white-lightness), 1);
+    --light-color: hsla(var(--primary-hue), 0%, var(--light-lightness), 1);
+    --dark-color: hsla(var(--primary-hue), 0%, var(--dark-lightness), 1);
+    --black-color: hsla(var(--primary-hue), 0%, var(--black-lightness), 1);
+}
+
+.theme.background-2{
+    --white-lightness: 4%;
+    --light-lightness: 20%;
+    --dark-lightness: 84%;
+    --black-lightness: 92%;
+    --white-color: hsla(var(--primary-hue), 0%, var(--white-lightness), 1);
+    --light-color: hsla(var(--primary-hue), 0%, var(--light-lightness), 1);
+    --dark-color: hsla(var(--primary-hue), 0%, var(--dark-lightness), 1);
+    --black-color: hsla(var(--primary-hue), 0%, var(--black-lightness), 1);
+}
+
+.theme.color-1{
+  --primary-hue: 0;
+  --secondary-hue: 55;
+  --primary-color: hsla(var(--primary-hue), 87%, 31%, 1);
+  --secondary-color: hsla(var(--secondary-hue), 77%, 45%, 1);
+}
+
+.theme.color-2{
+  --primary-hue: 45;
+  --secondary-hue: 55;
+  --primary-color: hsla(var(--primary-hue), 87%, 31%, 1);
+  --secondary-color: hsla(var(--secondary-hue), 77%, 45%, 1);
+}
+
+.theme.color-3{
+  --primary-hue: 90;
+  --secondary-hue: 55;
+  --primary-color: hsla(var(--primary-hue), 87%, 31%, 1);
+  --secondary-color: hsla(var(--secondary-hue), 77%, 45%, 1);
+}
+
+.theme.color-4{
+  --primary-hue: 135;
+  --secondary-hue: 55;
+  --primary-color: hsla(var(--primary-hue), 87%, 31%, 1);
+  --secondary-color: hsla(var(--secondary-hue), 77%, 45%, 1);
+}
+
+.theme.color-5{
+  --primary-hue: 180;
+  --secondary-hue: 55;
+  --primary-color: hsla(var(--primary-hue), 87%, 31%, 1);
+  --secondary-color: hsla(var(--secondary-hue), 77%, 45%, 1);
+}
+
+.theme.color-6{
+  --primary-hue: 225;
+  --secondary-hue: 55;
+  --primary-color: hsla(var(--primary-hue), 87%, 31%, 1);
+  --secondary-color: hsla(var(--secondary-hue), 77%, 45%, 1);
+}
+
+.theme.color-7{
+  --primary-hue: 270;
+  --secondary-hue: 55;
+  --primary-color: hsla(var(--primary-hue), 87%, 31%, 1);
+  --secondary-color: hsla(var(--secondary-hue), 77%, 45%, 1);
+}
+
+.theme.color-8{
+  --primary-hue: 315;
+  --secondary-hue: 55;
+  --primary-color: hsla(var(--primary-hue), 87%, 31%, 1);
+  --secondary-color: hsla(var(--secondary-hue), 77%, 45%, 1);
+}
+
+body{  
   font-size: .9rem;
   line-height: 1.6;
+}
+
+.theme{
+  color: var(--dark-color); 
   background: var(--white-color);
+
 }
 
 main{

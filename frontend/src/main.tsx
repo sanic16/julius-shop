@@ -19,6 +19,8 @@ import RegisterPage from './pages/registerPage/RegisterPage.tsx'
 import ShippingPage from './pages/shippingPage/ShippingPage.tsx'
 import PrivateRoot from './components/privateRoot/PrivateRoot.tsx'
 import PaymentPage from './pages/paymentPage/PaymentPage.tsx'
+import ModalContextProvider from './theme/context/ModalContextProvider.tsx'
+import ThemeContextProvider from './theme/context/ThemeContextProvider.tsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,9 +41,12 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Provider store={store} >
-      
-      <RouterProvider router={router} />
-    </Provider>
+    <ModalContextProvider>
+      <ThemeContextProvider>
+        <Provider store={store} >      
+          <RouterProvider router={router} />
+        </Provider>
+      </ThemeContextProvider>
+    </ModalContextProvider>
   </React.StrictMode>,
 )

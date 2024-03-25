@@ -31,6 +31,19 @@
     gap: 0.4rem;
 }
 
+.nav__menu button{
+    color: #fff;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.nav__menu li svg{
+    font-size: 1rem;
+}
+
 .nav__logo a{
     color: var(--secondary-color);
     font-family: 'Ribeye Marrow', sans-serif;
@@ -75,6 +88,14 @@
     align-items: center;
     gap: 0.4rem;
     cursor: pointer;
+}
+
+.nav__theme-picker{
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
 }
 
 .nav__menu-user-menu a:hover{

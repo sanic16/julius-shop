@@ -1,0 +1,75 @@
+.theme__modal{
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ccc;
+    padding: 2rem;
+    border-radius: var(--border-radius-2);
+}
+
+.theme__modal-primary-color,
+.theme__modal-background-color
+{
+    margin-block: 1rem;
+    display: grid;
+    grid-template-columns: 1.5rem 1.5rem 1.5rem 1.5rem;
+    column-gap: .5rem;
+    row-gap: 0.3rem;
+    justify-items: center;
+    justify-content: center;
+}
+
+.theme__modal-primary-color button{
+    width: 1.5rem;
+    aspect-ratio: 1/1;
+    background-color: black;
+    cursor: pointer;
+}
+
+.theme__modal-primary-color button.color-1{
+    background-color: hsl(0, 88%, 42%);
+}
+.theme__modal-primary-color button.color-2{
+    background-color: hsl(45, 88%, 42%);
+}
+.theme__modal-primary-color button.color-3{
+    background-color: hsl(90, 88%, 42%);
+}
+.theme__modal-primary-color button.color-4{
+    background-color: hsl(135, 88%, 42%);
+}
+.theme__modal-primary-color button.color-5{
+    background-color: hsl(180, 88%, 42%);
+}
+.theme__modal-primary-color button.color-6{
+    background-color: hsl(225, 88%, 42%);
+}
+.theme__modal-primary-color button.color-7{
+    background-color: hsl(270, 88%, 42%);
+}
+.theme__modal-primary-color button.color-8{
+    background-color: hsl(315, 88%, 42%);
+}
+
+.theme__modal-background-color{
+    margin-block: 1rem;
+    display: grid;
+    grid-template-columns: 1.5rem 1.5rem;
+    column-gap: .5rem;
+    row-gap: 0.3rem;
+    justify-items: center;
+    justify-content: center;    
+}
+
+.theme__modal-background-color button{
+    width: 1.5rem;
+    aspect-ratio: 1/1;
+    background-color: black;
+    cursor: pointer;
+}
+
+.theme__modal-background-color button.background-1{
+    background-color: white;
+}
