@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "build": "npx tsc",
+    "build:server": "npx tsc",
+    "build:client": "npm run build --prefix frontend && mv frontend/dist build/react",
+    "build:all": "npm run build:server && npm run build:client",
     "server": "nodemon ./build/index.js",
     "dev": "concurrently \"npx tsc -w\" \"HOST=0.0.0.0 nodemon ./build/index.js \" ",
     "superdev": "concurrently \"npm run dev --prefix frontend\" \"npm run dev\" ",

@@ -1,4 +1,4 @@
-import { type Request, type Response, type NextFunction } from "express";
+import { type Request, type Response} from "express";
 import Order from "../models/orderModel";
 import asyncHandler from "../middleware/asyncHandler";
 
@@ -66,21 +66,21 @@ export const getOrderById = asyncHandler(async (req: Request, res: Response) => 
 // @desc    Update order to paid
 // @route   PUT /api/orders/:id/pay
 // @access  Private
-export const updateOrderToPaid = asyncHandler(async (req: Request, res: Response) => {
+export const updateOrderToPaid = asyncHandler(async (_req: Request, res: Response) => {
     res.json({ message: "Update order to paid" });
 })
 
 // @desc    Update order to delivered
 // @route   PUT /api/orders/:id/deliver
 // @access  Private/Admin 
-export const updateOrderToDelivered = asyncHandler(async (req: Request, res: Response) => {
+export const updateOrderToDelivered = asyncHandler(async (_req: Request, res: Response) => {
     res.json({ message: "Update order to delivered" });
 })
 
 // @desc    Get all orders
 // @route   GET /api/orders
 // @access  Private/Admin
-export const getOrders = asyncHandler(async (req: Request, res: Response) => {
+export const getOrders = asyncHandler(async (_req: Request, res: Response) => {
     res.json({ message: "Get all orders" });
 })
 
