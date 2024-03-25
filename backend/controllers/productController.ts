@@ -21,4 +21,16 @@ const getProductById = asyncHandler(async(req: Request, res: Response) => {
     throw new Error('Product not found')
 })
 
-export { getProducts, getProductById }
+// @desc    Get Top Rated Products
+// @route   GET /api/products/top
+// @access  Public
+const getTopProducts = asyncHandler(async(_req: Request, res: Response) => {
+    const products = await Product.find({}).sort({ rating: -1 }).limit(5)
+    res.status(200).json(products) 
+})  
+
+export { 
+    getProducts, 
+    getProductById,
+    getTopProducts 
+}

@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getProductById = exports.getProducts = void 0;
+exports.getTopProducts = exports.getProductById = exports.getProducts = void 0;
 const asyncHandler_1 = __importDefault(require("../middleware/asyncHandler"));
 const productModel_1 = __importDefault(require("../models/productModel"));
 // @desc    Fetch all products
@@ -34,3 +34,11 @@ const getProductById = (0, asyncHandler_1.default)((req, res) => __awaiter(void 
     throw new Error('Product not found');
 }));
 exports.getProductById = getProductById;
+// @desc    Get Top Rated Products
+// @route   GET /api/products/top
+// @access  Public
+const getTopProducts = (0, asyncHandler_1.default)((_req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const products = yield productModel_1.default.find({}).sort({ rating: -1 }).limit(5);
+    res.status(200).json(products);
+}));
+exports.getTopProducts = getTopProducts;

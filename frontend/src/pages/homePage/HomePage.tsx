@@ -4,6 +4,7 @@ import Product from "../../components/Product"
 import './homePage.css'
 import LoaderText from "../../components/loader/LoaderText"
 import Message from "../../components/message/Message"
+import ProductCarousel from "../../components/productCarousel/ProductCarousel"
 
 const HomePage = () => {
   
@@ -14,6 +15,7 @@ const HomePage = () => {
   return (
     <section>
         <div className="container">
+            <ProductCarousel />
             <h1 className="heading__page">
                 Últimos productos
             </h1>

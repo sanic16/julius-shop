@@ -7,13 +7,19 @@ const productsApiSlice = apiSlice.injectEndpoints({
             query: () => ({
                 url: PRODUCTS_URL
             }),
-            keepUnusedDataFor: 300
+            keepUnusedDataFor: 300 * 1000
         }),
         getProduct: builder.query<FetchedProduct, string>({
             query: (id) => ({
                 url: `${PRODUCTS_URL}/${id}`       
             }),
-            keepUnusedDataFor: 300
+            keepUnusedDataFor: 300 * 1000
+        }),
+        getTopProducts: builder.query<FetchedProduct[], void>({
+            query: () => ({
+                url: `${PRODUCTS_URL}/top`
+            }),
+            keepUnusedDataFor: 24 * 60 * 60 * 1000
         })
        
     })
@@ -21,5 +27,6 @@ const productsApiSlice = apiSlice.injectEndpoints({
 
 export const {
     useGetProductsQuery,
-    useGetProductQuery
+    useGetProductQuery,
+    useGetTopProductsQuery
 } = productsApiSlice

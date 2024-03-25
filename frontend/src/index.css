@@ -5,8 +5,8 @@
     --secondary-hue: 55;
     --white-lightness: 92%;
     --light-lightness: 84%;
-    --dark-lightness: 20%;
-    --black-lightness: 4%;
+    --dark-lightness: 15%;
+    --black-lightness: 8%;
 
     --primary-color: hsla(var(--primary-hue), 87%, 31%, 1);
     --secondary-color: hsla(var(--secondary-hue), 77%, 45%, 1);
