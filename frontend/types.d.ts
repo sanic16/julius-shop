@@ -29,13 +29,15 @@ type ShippingAddress = {
     country: string
 }
 
+type PaymentMethod = 'PayPal' | 'Banrural' | 'G&T' | 'BAC' | 'BI'
+
 type CartState = {
     cartItems: CartItem[]
     itemsPrice: number,
     shippingPrice: number,
     taxPrice: number,
     totalPrice: number,
-    paymentMethod: 'PayPal',
+    paymentMethod: PaymentMethod,
     shippingAddress: ShippingAddress
 }
 

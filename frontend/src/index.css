@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Ribeye+Marrow&family=Zilla+Slab+Highlight:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 :root{
-    --primary-hue: 70;
+    --primary-hue: 150;
     --secondary-hue: 55;
-    --white-lightness: 4%;
-    --light-lightness: 16%;
-    --dark-lightness: 84%;
-    --black-lightness: 92%;
+    --white-lightness: 92%;
+    --light-lightness: 84%;
+    --dark-lightness: 20%;
+    --black-lightness: 4%;
 
     --primary-color: hsla(var(--primary-hue), 87%, 31%, 1);
     --secondary-color: hsla(var(--secondary-hue), 77%, 45%, 1);
