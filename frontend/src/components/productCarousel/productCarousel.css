@@ -1,5 +1,8 @@
 .banner__wrapper{
     min-height: calc(100vh - 8rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .banner{
     width: 100%;
